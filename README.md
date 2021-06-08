@@ -13,4 +13,4 @@ creating a command line application which takes advantage of Python’s built in
 * Note: A smaller example file is included as well which can be handy when developing/testing.
 
 ## Links:
-PR Link :[madlib-cli](https://github.com/baselatalla/madlib-cli/pull/1)
+PR Link :[madlib-cli](https://github.com/baselatalla/madlib-cli/pull/2)
