@@ -54,6 +54,7 @@ def prompt_inputs(matches):
     print(' \n    Please answer the below: \n ' )
     for x in range(len(matches)):
         input_array += [input( f'{matches[x]} :')]
+    print('\n \n')
     return tuple(input_array)
 counter_template = 1
 def merge(text_to_print , inputs):
@@ -67,11 +68,22 @@ def merge(text_to_print , inputs):
     retutn : the merged text parts & stripped text
     '''
     completed_text = text_to_print.format( *inputs )
-    with open(f'../assets/template{1}.txt', 'w') as completed:
+    with open('assets/result.txt', 'w') as completed:
         completed.write(completed_text)
     
     return completed_text
 
+def run_code():
+    read = read_template('assets/template.txt')
+    pars = parse_template(read)
+    prompt = prompt_inputs(pars[1])
+    result = merge(pars[0] , prompt)
+    print("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
+    print(result)
+    print("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
+    
+
+
 
 if __name__ == "__main__": # if running this as a script using $ python topics.py
-    print(merge(parse_template(read_template('../assets/template.txt'))[0] , prompt_inputs(parse_template(read_template('../assets/template.txt'))[1])))
+    run_code()
